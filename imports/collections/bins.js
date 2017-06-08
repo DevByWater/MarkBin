@@ -9,8 +9,13 @@ Meteor.methods({
             owner_id: this.userId
         })
     },
+
     'bins.remove': function(bin){
         return Bins.remove(bin)
+    },
+
+    'bins.update': function(bin, newContent){
+        return Bins.update(bin._id, { $set: {content: newContent}})
     }
 
 })
