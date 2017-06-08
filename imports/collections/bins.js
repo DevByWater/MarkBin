@@ -8,7 +8,11 @@ Meteor.methods({
             sharedWith: [],
             owner_id: this.userId
         })
+    },
+    'bins.remove': function(bin){
+        return Bins.remove(bin)
     }
+
 })
 
 export const Bins = new Mongo.Collection('bins')
