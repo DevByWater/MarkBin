@@ -6,7 +6,7 @@ Meteor.methods({
             createdAt: new Date(),
             content: '',
             sharedWith: [],
-            owner_id: this.userId()
+            owner_id: this.userId
         })
     }
 })

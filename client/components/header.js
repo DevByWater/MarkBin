@@ -6,6 +6,7 @@ class Header extends Component {
     onBinClick(event){
         event.preventDefault()
         Meteor.call('bins.insert')
+        console.log('bin inserted')
     }
     render(){
         return (
@@ -15,7 +16,7 @@ class Header extends Component {
                 </div>
                 <ul className="nav navbar-nav">
                     <li>
-                        <a>Sign Up</a>
+                        <a><Accounts /></a>
                     </li>
                     <li>
                         <a href="#" onClick={this.onBinClick.bind(this)}>Create Bin</a>
