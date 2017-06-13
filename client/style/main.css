@@ -1,7 +1,11 @@
 
 @font-face{
-    font-family: 'Marker';
-    src: url('../statics/fonts/marker_felt/Marker Felt.ttf');
+    font-family: 'Marker-Felt';
+    src: url('/fonts/Marker Felt.ttf');
+}
+@font-face{
+    font-family: 'Heavy Heap';
+    src: url('/fonts/heavy heap.ttf');
 }
 
 
@@ -30,7 +34,7 @@
      margin: 0;
 }
 .home-header{
-    font-family: 'Marker', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Heavy Heap', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
 }
 
