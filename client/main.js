@@ -7,11 +7,13 @@ import BinsMain from './components/bins/bins_main'
 import BinsList from './components/bins/bins_list'
 import { Bins } from '../imports/collections/bins'
 import Home from './components/home'
+import AuthForm from './components/forms/auth'
 
 const routes = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
             <IndexRoute component={Home} />
+            <Route path="auths/:action" component={AuthForm} />
             <Route path="bins/:binId" component={BinsMain} />
         </Route>
     </Router> 

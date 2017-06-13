@@ -2,14 +2,22 @@ import React, { Component } from 'react'
 import { Accounts } from 'meteor/accounts-base'
 
 class RegisterForm extends Component{
-    matchPasswords(pwd, confirm_pwd){
-        err_message = ''
-        if(pwd != confirm_pwd){
-            err_message = 'Passwords must match'
+    constructor(props){
+        super(props)
+
+        this.state ={error: {}}
+    }
+    renderError(error){
+        if(error){
+            return (
+                <div className="alert alert-danger">
+                    {error.reason}
+                </div>
+            )
         }
     }
-    createUser(e){
-        e.preventDefault()
+    createUser(event){
+        event.preventDefault()
 
         const email = this.refs.email.value,
               password = this.refs.password.value,
@@ -17,14 +25,14 @@ class RegisterForm extends Component{
               
         
         Accounts.createUser({ email, password}, (error)=>{
-            if(error){
-                console.log("there was an error: ", error)
-            }
+          this.setState({error})
         })
     }
     render(){
+        console.log(this.ref)
         return (
-            <form onSubmit={this.createUser()}>
+            <form onSubmit={this.createUser.bind(this)}>
+                <div className="error-group">{error.reason}</div>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input placeholder="Email" type="email" id="email" ref="email" className="form-control"/>
