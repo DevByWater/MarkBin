@@ -5,7 +5,7 @@ import BinsList from './bins/bins_list'
 
 export default (props) => {
     return (
-        <div>
+        <div className="app-container">
             <Header />
             {props.children}
         </div>

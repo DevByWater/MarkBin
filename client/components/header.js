@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, browserHistory } from 'react-router'
-import Accounts from './accounts'
+
 
 
 class Header extends Component {
@@ -19,11 +19,14 @@ class Header extends Component {
                 </div>
                 <ul className="nav navbar-nav">
                     <li>
-                        <a><Accounts /></a>
-                    </li>
-                    <li>
                         <a href="#" onClick={this.onBinClick.bind(this)}>Create Bin</a>
                     </li>
+                </ul>
+                <ul className="nav navbar-nav navbar-right">
+                    <li>
+                        <a>Account</a>
+                    </li>
+                    
                 </ul>
             </nav>
         )

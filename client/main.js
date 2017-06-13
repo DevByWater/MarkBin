@@ -6,11 +6,12 @@ import App from './components/app'
 import BinsMain from './components/bins/bins_main'
 import BinsList from './components/bins/bins_list'
 import { Bins } from '../imports/collections/bins'
+import Home from './components/home'
 
 const routes = (
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <IndexRoute component={BinsList} />
+            <IndexRoute component={Home} />
             <Route path="bins/:binId" component={BinsMain} />
         </Route>
     </Router> 

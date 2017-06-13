@@ -11,10 +11,10 @@ class BinsMain extends Component {
     render(){
         if(!this.props.bin) {return <div>Loading...</div>}
         return (
-            <div>
+            <div className="binsMain">
                 <BinsEditor bin={this.props.bin} />
                 <BinsViewer bin={this.props.bin} />
-                <BinsShare />
+                <BinsShare  bin={this.props.bin} />
             </div>
         )
     }
@@ -22,6 +22,7 @@ class BinsMain extends Component {
 export default createContainer((props)=> {
     const { binId } = props.params
     Meteor.subscribe('bins')
+    Meteor.subscribe('sharedBins')
 
     return { bin: Bins.findOne(binId)}
 }, BinsMain)
