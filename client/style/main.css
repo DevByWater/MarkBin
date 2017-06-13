@@ -1,5 +1,8 @@
 
-
+@font-face{
+    font-family: 'Marker';
+    src: url('../statics/fonts/marker_felt/Marker Felt.ttf');
+}
 
 
 .list-group-item {
@@ -20,9 +23,20 @@
 .bins-share > div {
     margin: 0 12px;
 }
+.home-container {
+     background-color: #80a3ff;
+     height: 100vh;
+     width: auto;
+     margin: 0;
+}
+.home-header{
+    font-family: 'Marker', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
 
 .render-target{
-    background-color: #80a3ff;
+   height: 90%;
+   padding: 0;
 }
 #login-buttons {
     margin: 5px 18px;
