@@ -1,0 +1,36 @@
+@font-face{
+    font-family: 'Marker Felt';
+    src: url('/fonts/Marker Felt.ttf');
+}
+.form_wrapper{
+    text-align: center;
+    background-color: #ffffff;
+    margin-top: 50px;
+}
+
+.auth-container{
+    background-color: rgba(116, 208, 236, 0.89);
+    height: 95vh;
+    width: auto;
+    margin: 0;
+}
+.form_button {
+    border-radius: 5px;
+    background-color:#ff7575;
+    color: #000;
+    font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
+    padding: 15px 25px;
+    -webkit-box-shadow: 2px 2px 11px 0px rgba(0,0,0,0.56);
+    -moz-box-shadow: 2px 2px 11px 0px rgba(0,0,0,0.56);
+    box-shadow: 2px 2px 11px 0px rgba(0,0,0,0.56);
+}
+.form_button:hover{
+    -webkit-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.76);
+    -moz-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.76);
+    box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.76);
+}
+
+.auth-container h1{
+    font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
+    color: #222;
+}

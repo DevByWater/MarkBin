@@ -7,15 +7,7 @@ class RegisterForm extends Component{
 
         this.state ={error: {}}
     }
-    renderError(error){
-        if(error){
-            return (
-                <div className="alert alert-danger">
-                    {error.reason}
-                </div>
-            )
-        }
-    }
+   
     createUser(event){
         event.preventDefault()
 
@@ -25,14 +17,13 @@ class RegisterForm extends Component{
               
         
         Accounts.createUser({ email, password}, (error)=>{
-          this.setState({error})
+          this.setState({error: error})
         })
     }
     render(){
-        console.log(this.ref)
         return (
             <form onSubmit={this.createUser.bind(this)}>
-                <div className="error-group">{error.reason}</div>
+                <div className="error-group">{this.state.error.reason}</div>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input placeholder="Email" type="email" id="email" ref="email" className="form-control"/>
@@ -46,7 +37,7 @@ class RegisterForm extends Component{
                     <input placeholder="Confirm Password" type="password" id="confirm_password" ref="confirm_password" className="form-control"/>
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary form_button">
                         Register
                     </button>
                 </div>

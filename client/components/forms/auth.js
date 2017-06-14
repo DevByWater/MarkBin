@@ -9,8 +9,9 @@ class AuthForm extends Component {
         action = this.props.params.action
         if(action === 'register'){
             return(
-                <div className="row">
-                    <div className="col-sm-6 col-sm-offset-3">
+                <div className="auth-container">
+                    <div className="col-sm-6 col-sm-offset-3 form_wrapper">
+                        <h1>Register</h1>
                         <RegisterForm />
                     </div>
                 </div>
@@ -18,8 +19,9 @@ class AuthForm extends Component {
         }
         if(action === 'login'){
             return (
-                <div className="row">
-                    <div className="col-sm-6 col-sm-offset-3">
+                <div className="auth-container">
+                    <div className="col-sm-6 col-sm-offset-3 form_wrapper">
+                        <h1>Log In</h1>
                         <LoginForm />
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 
 @font-face{
-    font-family: 'Marker-Felt';
+    font-family: 'Marker Felt';
     src: url('/fonts/Marker Felt.ttf');
 }
 @font-face{
@@ -11,6 +11,24 @@
 
 .list-group-item {
     height: 55px;
+}
+
+.btn-home-reg,
+.btn-home-login {
+    border-radius: 5px;
+    background-color: #eee;
+    color: #000;
+    font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
+    padding: 15px 25px;
+    -webkit-box-shadow: 2px 2px 11px 0px rgba(0,0,0,0.56);
+    -moz-box-shadow: 2px 2px 11px 0px rgba(0,0,0,0.56);
+    box-shadow: 2px 2px 11px 0px rgba(0,0,0,0.56);
+}
+.btn-home-reg:hover,
+.btn-home-login:hover {
+    -webkit-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.76);
+    -moz-box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.76);
+    box-shadow: 1px 1px 6px 0px rgba(0,0,0,0.76);
 }
 
 .bins-share {
@@ -27,22 +45,52 @@
 .bins-share > div {
     margin: 0 12px;
 }
+.home-auth-container{
+    background-image: url("/img/html_backdrop.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .home-container {
-     background-color: #80a3ff;
-     height: 100vh;
+     background-color: rgba(116, 208, 236, 0.89);
+     height: 95vh;
      width: auto;
      margin: 0;
 }
 .home-header{
-    font-family: 'Heavy Heap', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
+    color: #eee;
     text-align: center;
+}
+.home-header > h1 {
+    font-size: 6em;
+    text-shadow: 2px 2px 7px rgba(0,0,0,0.56);
+}
+.home-header > h2 {
+    color: #e2616e;
+}
+
+.home-auth-links{
+    text-align: center;
+}
+nav.nav.navbar-default {
+    -webkit-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.71);
+    -moz-box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.71);
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.71);
+}
+a.navbrand {
+    padding-top: 5px;
+}
+
+a.navbrand > img{
+    max-height: 40px;
+    padding-top: 5px;
+
+}
+.main_ben2{
+    max-height: 100px;
 }
 
 .render-target{
    height: 90%;
-   padding: 0;
-}
-#login-buttons {
-    margin: 5px 18px;
-    font-size: 14px;
+   padding: 0px;
 }

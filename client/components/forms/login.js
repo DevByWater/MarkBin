@@ -21,7 +21,7 @@ class LoginForm extends Component{
     render(){
         return (
             <form onSubmit={this.loginWithPassword}>
-                <div className="error-group">{error.reason}</div>
+                <div className="error-group">{this.state.error.reason}</div>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input placeholder="Email" type="email" id="email" ref="email" className="form-control"/>
@@ -31,7 +31,7 @@ class LoginForm extends Component{
                     <input placeholder="Password" type="password" id="password" ref="password" className="form-control"/>
                 </div>
                 <div className="form-group">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary form_button">
                         Log In
                     </button>
                 </div>
