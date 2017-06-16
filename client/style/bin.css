@@ -1,0 +1,12 @@
+@font-face{
+    font-family: 'Marker Felt';
+    src: url('/fonts/Marker Felt.ttf');
+}
+
+.emptyBin-container {
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid  rgba(116, 208, 236, 0.89);
+    font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
+}

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import { browserHistory } from 'react-router'
 import { Accounts } from 'meteor/accounts-base'
 
 class RegisterForm extends Component{
     constructor(props){
         super(props)
 
-        this.state ={error: {}}
+        this.state ={error_reason : ''}
     }
    
     createUser(event){
@@ -17,13 +18,17 @@ class RegisterForm extends Component{
               
         
         Accounts.createUser({ email, password}, (error)=>{
-          this.setState({error: error})
+            if(error){
+                 this.setState({error_reason: error.reason})
+            } else {
+                browserHistory.push('/app/bins')
+            }
         })
     }
     render(){
         return (
             <form onSubmit={this.createUser.bind(this)}>
-                <div className="error-group">{this.state.error.reason}</div>
+                <div className="error-group danger">{this.state.error_reason}</div>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input placeholder="Email" type="email" id="email" ref="email" className="form-control"/>
@@ -40,6 +45,9 @@ class RegisterForm extends Component{
                     <button type="submit" className="btn btn-primary form_button">
                         Register
                     </button>
+                </div>
+                <div className="form-group">
+                    <a href="/auths/login">Already have an account?</a>
                 </div>
             </form>
         )

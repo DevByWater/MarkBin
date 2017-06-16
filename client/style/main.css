@@ -12,6 +12,11 @@
 .list-group-item {
     height: 55px;
 }
+.dropdown{
+    margin-top: 10px;
+    margin-right: 10px;
+    border: none;
+}
 
 .btn-home-reg,
 .btn-home-login {
@@ -86,8 +91,22 @@ a.navbrand > img{
     padding-top: 5px;
 
 }
+.goToMenu{
+    font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+.goToMenu-list{
+    list-style: none;
+}
+.goToMenu-list li {
+    padding: 10px;
+}
+
 .main_ben2{
     max-height: 100px;
+}
+#dropdownMenu1{
+    border: none;
 }
 
 .render-target{

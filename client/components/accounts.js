@@ -1,14 +1,25 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import { browserHistory } from 'react-router'
 import { Meteor } from 'meteor/meteor'
-import { Template } from 'meteor/templating'
-import { Blaze } from 'meteor/blaze'
 
 class Accounts extends Component {
-    logOut(){
+    constructor(props){
+        super(props)
+        this.logOut = this.logOut.bind(this)
+    }
+    getMeteorData(){
+        return { isAuthenticated: Meteor.userId() !== null}
+    }
+
+    
+
+    logOut(event){
+        event.preventDefault()
         Meteor.logout((error)=>{
             if(error){
                  console.log(error.reason)
+            } else {
+                browserHistory.push('/')
             }
            
         })
@@ -16,6 +27,7 @@ class Accounts extends Component {
 
     render(){
         return (
+            
             <div className="dropdown">
                 <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     <i className="fa fa-user-o fa-lg"></i>
@@ -26,7 +38,7 @@ class Accounts extends Component {
                     <li><a href="#">Change Password</a></li>
                     <li><a href="#">Edit Profile</a></li>
                     <li role="separator" className="divider"></li>
-                    <li><a href="#">View Bins</a></li>
+                    <li><a href="/bins">View Bins</a></li>
                 </ul>
             </div>
         )
