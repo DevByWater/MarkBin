@@ -19,9 +19,13 @@ class BinsList extends Component {
         return this.props.bins.map(bin => {
             const url = `/bins/${bin._id}`
             return (
-                <li className="list-group-item" key={bin._id}>
+                <li className="list-group-item binList-item" key={bin._id}>
                     <Link to={url}> Bin {bin._id}</Link>
                     <span className="pull-right">
+                        <span className="shared-count">
+                            <i className="fa fa-users" aria-hidden="true"></i>
+                            {bin.sharedWith.length}
+                        </span>
                         <button
                             className="btn btn-danger"
                             onClick={()=> this.onBinRemove(bin)}>
@@ -36,7 +40,9 @@ class BinsList extends Component {
         console.log(this.props.bins.length)
         if(this.props.bins.length > 0){
              return (
+                 
                  <div className="container binList">
+                    <h1 className="bin-headers">Your Bins</h1>
                      <ul className="list-group">
                         {this.renderList()}
                     </ul>

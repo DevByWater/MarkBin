@@ -16,7 +16,7 @@ class BinsEditor extends Component {
     constructor(props){
         super(props)
 
-        this.selectedMode = document.querySelector('.selectPicker').value
+       
         
         this.state = {
              defaultMode: EditorModes.HTML,
@@ -54,6 +54,9 @@ class BinsEditor extends Component {
     onEditorChange(content){
         Meteor.call('files.update', this.props.file, content)
     }
+    showFileInput(){
+       $('#newFile').toggle()
+    }
     
 
     render(){
@@ -65,13 +68,12 @@ class BinsEditor extends Component {
                     {this.renderFiles()}
 
                     <li>
-                        <select className="selectpicker" title="Choose Format" data-style="btn-info">
-                            <option value={this.state.defaultMode} selected>HTML</option>
-                            <option value={this.state.markDown}>Markdown</option>
-                        </select>
-                        <button className="btn btn-success"
-                         onClick={()=>this.createNewFile(this.props.bin, this.selectedMode)}>
-                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        <form className="form-inline">
+                            <input type="text" id="newFile" ref="newFile" className="form-control"/>
+                        </form>
+                        <button className="btn btn-outline-success"
+                            onClick={this.showFileInput}>
+                                <i class="fa fa-plus" aria-hidden="true"></i>
                         </button>
                     </li>
                 </ul>

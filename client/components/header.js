@@ -25,9 +25,10 @@ class Header extends Component {
             )
         }
         return(
-            <div>
+            <li>
                 <Accounts/>
-            </div>    
+
+            </li>   
         )
     }
     onBinClick(event){
@@ -35,7 +36,6 @@ class Header extends Component {
         Meteor.call('bins.insert', (error, binId)=>{
             browserHistory.push(`/bins/${binId}`)
         }) 
-        Meteor.call('files.insert', (error))
     }
     render(){
         return (
@@ -47,7 +47,9 @@ class Header extends Component {
                         </Link>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
-                   
+                        <li onClick={this.onBinClick.bind(this)}><a href="#">
+                            <i className="fa fa-plus"></i> Create Bin
+                        </a></li>
                        
                         {this.renderAccountLink()}
                     </ul>

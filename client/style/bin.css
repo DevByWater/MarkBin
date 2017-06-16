@@ -10,3 +10,23 @@
     border: 2px solid  rgba(116, 208, 236, 0.89);
     font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
 }
+.binList{
+    background-color: rgba(116, 208, 236, 0.89);
+    padding-top: 20px;
+    margin-top: 20px;
+}
+.binList > h1 {
+    text-align: center;
+}
+.bin-headers {
+    font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
+}
+.binList-item{
+    margin: 5px;
+}
+.shared-count {
+    margin: 5px 15px;
+}
+.shared-count > .fa {
+    padding-right: 5px;
+}
