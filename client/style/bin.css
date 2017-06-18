@@ -3,6 +3,17 @@
     src: url('/fonts/Marker Felt.ttf');
 }
 
+div.modal-header{
+    font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+div.modal-body{
+    padding: 0;
+}
+div.modal-footer {
+    text-align: center;
+}
 .emptyBin-container {
     margin-top: 20px;
     text-align: center;
@@ -29,4 +40,23 @@
 }
 .shared-count > .fa {
     padding-right: 5px;
+}
+.tab-list {
+    list-style: none;
+}
+.tab-list li {
+    display: inline-flex;
+}
+.modalFileSelector {
+    cursor: pointer;
+    text-align: center;
+}
+.modalFileSelector:hover {
+    cursor: pointer;
+    background-color: rgba(116, 208, 236, 0.89);
+    color: #eee;
+}
+.modalImage {
+    max-height: 50px;
+    max-width: 100px;
 }

@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor'
 
 import Accounts from './accounts'
 import EditorModes from '../../imports/scripts/editor_modes'
+import CreateBinModal from './bins/bins_create'
 
 
 
@@ -31,6 +32,7 @@ class Header extends Component {
             </li>   
         )
     }
+    
     onBinClick(event){
         event.preventDefault()
         Meteor.call('bins.insert', (error, binId)=>{
@@ -47,13 +49,14 @@ class Header extends Component {
                         </Link>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
-                        <li onClick={this.onBinClick.bind(this)}><a href="#">
+                        <li className="btn btn-info" data-toggle="modal" data-target="#createBinModal"><a href="#">
                             <i className="fa fa-plus"></i> Create Bin
                         </a></li>
                        
                         {this.renderAccountLink()}
                     </ul>
-                </div>    
+                </div>
+                <CreateBinModal />    
             </nav>
         )
     }

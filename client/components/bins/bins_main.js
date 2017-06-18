@@ -3,8 +3,7 @@ import { Meteor } from 'meteor/meteor'
 import { createContainer } from 'meteor/react-meteor-data'
 import { Bins } from '../../../imports/collections/bins'
 
-import BinsEditor from './bins_editor'
-import BinsViewer from './bins_viewer'
+import BinsWorkplace from './bins_workplace'
 import BinsShare from './bins_share'
 
 class BinsMain extends Component {
@@ -12,8 +11,7 @@ class BinsMain extends Component {
         if(!this.props.bin) {return <div>Loading...</div>}
         return (
             <div className="binsMain">
-                <BinsEditor bin={this.props.bin} />
-                <BinsViewer bin={this.props.bin} />
+                <BinsWorkplace bin={this.props.bin} />
                 <BinsShare  bin={this.props.bin} />
             </div>
         )
