@@ -47,7 +47,7 @@ class BinsEditor extends Component {
     
 
     onEditorChange(content){
-        Meteor.call('bins.update', this.props.file, content)
+        Meteor.call('bins.update', content)
     }
     showFileInput(){
        $('#newFile').toggle()

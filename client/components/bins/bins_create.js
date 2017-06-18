@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { Meteor } from 'meteor/meteor'
 
+
+import FormHandler from '../../handlers/form_handler'
+
 class CreateBinModal extends Component {
     constructor(props){
         super(props)
-        this.email = Meteor.userId().email;
-        this.state = { fileType: '', binName: '' + this.email}
+        this.user = Meteor.users.findOne(Meteor.userId());
+        this.state = { fileType: '', binName: ''}
+        this.binChecker = FormHandler.checkBinName
     }
     getFileType(file){
         if(file !== 'html' || file !== 'markdown'){
@@ -18,12 +22,17 @@ class CreateBinModal extends Component {
         this.setState({binName: name})
     }
     onBinClick(state){
-        Meteor.call('bins.insert', state.binName, state.fileType, (error, binId)=>{
-            browserHistory.push(`/bins/${binId}`)
+       errors = this.binChecker(state.binName)
+       if(errors){
+           return errors.message
+       }
+        Meteor.call('bins.insert', state.binName, state.fileType, (error, binName)=>{
+            browserHistory.push(`/bins/${binName}`)
         }) 
     }
 
     render(){
+        console.log(this.user)
         return(
             <div className="modal fade" id="createBinModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div className="modal-dialog" role="document">
@@ -49,12 +58,12 @@ class CreateBinModal extends Component {
                                      <h3>Markdown</h3>
                                 </div>
                             </div>
-                            <div className="container row modalInput">
+                            <div className="container modalInput">
                                 <div className="row">
                                     <h4>Bin Name</h4>
 
                                     <input onChange={this.onBinNameChange.bind(this)}
-                                     type="text" className="form-control" />
+                                     type="text" className="form-control binName" />
 
                                 </div>
                                 <div className="row">

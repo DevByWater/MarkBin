@@ -40,6 +40,7 @@ class Header extends Component {
         }) 
     }
     render(){
+        console.log(Meteor.user())
         return (
             <nav className="nav navbar-default">
                 <div className="container-fluid">
