@@ -10,6 +10,8 @@ div.modal-header{
 
 div.modal-body{
     padding: 0;
+    margin: 20px;
+    text-align: center;
 }
 div.modal-footer {
     text-align: center;
@@ -48,6 +50,7 @@ div.modal-footer {
     display: inline-flex;
 }
 .modalFileSelector {
+    padding: 10px;
     cursor: pointer;
     text-align: center;
 }
@@ -59,4 +62,29 @@ div.modal-footer {
 .modalImage {
     max-height: 50px;
     max-width: 100px;
+}
+.modal-input {
+    margin-top: 50px;
+    padding: 20px;
+}
+.modalButtons {
+    margin-top: 10px;
+}
+
+.create-bin-row {
+    padding: 30px;
+    margin: 10px;
+    text-align: center;
+    background-color: #e0eaeb;
+}
+.create-bin-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row; /* works with row or column */
+    flex-direction: row;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    margin-top: 30px;
 }

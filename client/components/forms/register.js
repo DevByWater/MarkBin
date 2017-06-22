@@ -13,11 +13,12 @@ class RegisterForm extends Component{
         event.preventDefault()
 
         const email = this.refs.email.value,
+              username = this.refs.username.value,
               password = this.refs.password.value,
               confirm_password = this.refs.confirm_password.value
               
         
-        Accounts.createUser({ email, password}, (error)=>{
+        Accounts.createUser({ email, username, password}, (error)=>{
             if(error){
                  this.setState({error_reason: error.reason})
             } else {
@@ -32,6 +33,10 @@ class RegisterForm extends Component{
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input placeholder="Email" type="email" id="email" ref="email" className="form-control"/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="username">Username:</label>
+                    <input placeholder="Username" type="text" id="username" ref="username" className="form-control"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password:</label>

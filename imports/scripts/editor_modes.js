@@ -5,7 +5,9 @@ export default EditorModes = {
                 mode: 'htmlmixed',
                 displayName: 'HTML',
                 lineNumbers: true,
-                lineWrapping: true
+                lineWrapping: true,
+                styleActiveLine: true,
+                matchBrackets: true
             },
             CSS: {
                 mode: 'css',

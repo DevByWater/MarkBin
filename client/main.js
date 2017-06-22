@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor'
 import App from './components/app'
 import BinsMain from './components/bins/bins_main'
 import BinsList from './components/bins/bins_list'
+import BinsWorplace from './components/bins/bins_workplace'
 import { Bins } from '../imports/collections/bins'
 import Home from './components/home'
 import AuthForm from './components/forms/auth'
@@ -17,9 +18,9 @@ const routes = (
         <Route path="/" component={App}>
             <IndexRoute component={Home} />
             <Route path="auths/:action" component={AuthForm} />
-            <Route component={AuthenticatedApp} >
-                <Route path="bins/list" component={BinsList} />
-                <Route path="bins/:binId" component={BinsMain} />
+            <Route path="bins" component={AuthenticatedApp} >
+                <IndexRoute  component={BinsMain} />
+                <Route path="/workplace/:binName" component />
             </Route>
         </Route>
     </Router> 

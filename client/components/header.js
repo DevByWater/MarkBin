@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, browserHistory } from 'react-router'
 import { Meteor } from 'meteor/meteor'
+import { createContainer } from 'meteor/react-meteor-data'
 
 import Accounts from './accounts'
 import EditorModes from '../../imports/scripts/editor_modes'
@@ -9,13 +10,14 @@ import CreateBinModal from './bins/bins_create'
 
 
 class Header extends Component {
-    renderCreateBin(){
-        if(Meteor.userId()){
-            return(
-                <li onClick={this.onBinClick.bind(this)}>+ Create Bin</li>
-            )
-        }
-    }
+    
+    // renderCreateBin(){
+    //     if(Meteor.userId()){
+    //         return(
+    //             <li onClick={this.onBinClick.bind(this)}>+ Create Bin</li>
+    //         )
+    //     }
+    // }
 
     renderAccountLink(){
         if(!Meteor.userId()){
@@ -32,6 +34,17 @@ class Header extends Component {
             </li>   
         )
     }
+    // renderBinCreator(){
+    //     if(Meteor.userId()){
+    //         return (
+    //             <li className="nav-pill" data-toggle="modal" data-target="#createBinModal"><a href="#">
+    //                         <i className="fa fa-plus"></i> Create Bin
+    //                 </a>
+                    
+    //             </li>
+    //         )
+    //     }
+    // }
     
     onBinClick(event){
         event.preventDefault()
@@ -40,7 +53,6 @@ class Header extends Component {
         }) 
     }
     render(){
-        console.log(Meteor.user())
         return (
             <nav className="nav navbar-default">
                 <div className="container-fluid">
@@ -50,17 +62,15 @@ class Header extends Component {
                         </Link>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
-                        <li className="btn btn-info" data-toggle="modal" data-target="#createBinModal"><a href="#">
-                            <i className="fa fa-plus"></i> Create Bin
-                        </a></li>
-                       
+
                         {this.renderAccountLink()}
                     </ul>
                 </div>
-                <CreateBinModal />    
             </nav>
         )
     }
 }
 
+
 export default Header
+

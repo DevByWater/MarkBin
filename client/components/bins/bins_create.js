@@ -7,32 +7,33 @@ import FormHandler from '../../handlers/form_handler'
 class CreateBinModal extends Component {
     constructor(props){
         super(props)
-        this.user = Meteor.users.findOne(Meteor.userId());
-        this.state = { fileType: '', binName: ''}
+        this.state = {
+             mode: '',
+             binName: ''
+            }
+        // this.email = this.props.user.email[0].address
         this.binChecker = FormHandler.checkBinName
+        
     }
-    getFileType(file){
-        if(file !== 'html' || file !== 'markdown'){
-            console.log('this is not a correct file')
-            return
-        }
-        return this.setState({fileType: file})
+    setFileType(file){
+        this.setState({fileType: file})
+        console.log(this.state.fileType)
     }
     onBinNameChange(name){
-        this.setState({binName: name})
+        this.setState({binName: name.target.value })
     }
-    onBinClick(state){
-       errors = this.binChecker(state.binName)
+    onBinClick(){
+       errors = this.binChecker(this.state.binName)
        if(errors){
            return errors.message
        }
-        Meteor.call('bins.insert', state.binName, state.fileType, (error, binName)=>{
+        Meteor.call('bins.insert', this.state.binName , this.state.mode, (error, binName)=>{
             browserHistory.push(`/bins/${binName}`)
         }) 
     }
 
     render(){
-        console.log(this.user)
+       console.log(this.props.user)
         return(
             <div className="modal fade" id="createBinModal" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div className="modal-dialog" role="document">
@@ -42,40 +43,44 @@ class CreateBinModal extends Component {
                             <h4 className="modal-title" id="creatBinLabel">Create New Bin</h4>
                         </div>
                         <div className="modal-body">
+                            <h4>Choose file format</h4>
                             <div className="row">
                                 <div 
-                                onClick = {this.getFileType('html')} 
+                                onClick = {()=>{this.setFileType('html')}} 
                                 className="col-xs-6 modalFileSelector" 
                                 id="htmlFile">
                                     <img src="/img/html5.png" className="modalImage"/>
                                     <h3>HTML</h3>
                                 </div>
                                 <div 
-                                onClick={this.getFileType('markdown')}
+                                onClick={()=>{this.setFileType('markdown')}}
                                 className="col-xs-6 modalFileSelector"
                                 id="mdFile">
                                      <img src="/img/markdown.png" className="modalImage"/>
                                      <h3>Markdown</h3>
                                 </div>
                             </div>
-                            <div className="container modalInput">
-                                <div className="row">
-                                    <h4>Bin Name</h4>
+                        </div>
+                        <div className="modal-footer">
+                            <div className="modalInput">
+                                <div className="col-xs-12">
+                                    <h5 className="col-xs-12">Bin Name</h5>
 
                                     <input onChange={this.onBinNameChange.bind(this)}
-                                     type="text" className="form-control binName" />
+                                     type="text"
+                                      className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 binName" />
 
                                 </div>
-                                <div className="row">
+                                <div className="col-xs-12">
                                     <span className="fullBinName">{this.state.binName}</span>
                                 </div>   
                             </div>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="button"
-                             onClick={this.onBinClick.bind(this, this.state)}
-                             className="btn btn-primary form_button">Create Bin</button>
+                            <div className="col-xs-12 modalButtons">
+                                <button type="button" className="btn btn-default" data-dismiss="modal">Cancel</button>
+                                <button type="button"
+                                onClick={this.onBinClick.bind(this)}
+                                className="btn btn-primary form_button">Create Bin</button>
+                            </div>
                         </div>
                     </div>
                 </div>

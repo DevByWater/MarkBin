@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import { Link, browserHistory } from 'react-router'
 import { Meteor } from 'meteor/meteor'
 import { createContainer } from 'meteor/react-meteor-data'
+
+
 import { Bins } from '../../../imports/collections/bins'
+
+import CreateBinModal from './bins_create'
 
 
 class BinsList extends Component {
+    constructor(props){
+        super(props)
+    }
     onBinClick(event){
         event.preventDefault()
         Meteor.call('bins.insert', (error, binId)=>{
@@ -37,22 +44,36 @@ class BinsList extends Component {
         })
     }
     render(){
-        console.log(this.props.bins.length)
+        console.log(Meteor.user())
         if(this.props.bins.length > 0){
              return (
-                 
-                 <div className="container binList">
-                    <h1 className="bin-headers">Your Bins</h1>
-                     <ul className="list-group">
-                        {this.renderList()}
-                    </ul>
-                 </div>
+                 <div className='col-xs-12'>
+                    <div className="row create-bin-row">
+                        <button className="btn form_button" data-toggle="modal" data-target="#createBinModal">
+                            <i className="fa fa-plus"></i> Create Bin
+                        </button>
+                    </div>
+                    <div className="container binList">
+                        <h1 className="bin-headers">Your Bins</h1>
+                        <ul className="list-group">
+                            {this.renderList()}
+                        </ul>
+                    </div>
+
+                    <CreateBinModal user={Meteor.user()} />
+
+                </div>
             )
         }
         return (
             <div className="container jumbotron emptyBin-container">
                 <h2>Looks like you need a bin</h2>
-                <button className="btn form_button" onClick={this.onBinClick.bind(this)}>Create a Bin!</button>
+
+                <button className="btn form-button" data-toggle="modal" data-target="#createBinModal">
+                            <i className="fa fa-plus"></i> Create Bin
+                </button>
+                 <CreateBinModal user={this.props.user}/>
+
             </div>
         )
      

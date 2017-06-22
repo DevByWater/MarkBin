@@ -16,55 +16,30 @@ class BinsEditor extends Component {
     constructor(props){
         super(props)
 
-       
-        
-        this.state = {
-             defaultMode: EditorModes.HTML,
-             markDown: EditorModes.Markdown,
-             files: []
-        }
-    }
-
-    createNewFile(bin, mode){
-        Meteor.call('files.insert', bin._id,  mode, (error, file_result)=>{
-            if(error){
-                return error.reason
-            }
-
-        })
+        this.mode = this.props.bin.fileType === 'html' ? EditorModes.HTML : EditorModes.Markdown
         
     }
-    renderFiles(){
-        console.log(this.props.bin)
-        if(this.props.bin.files.length > 0){
-            return this.props.bin.files.map(file => {
-                <li id={file._id} key={file._id}>=>
-                    {file.modeSpec.displayName}
-                </li>
-            })
-        }
-    }
+    
     
 
     onEditorChange(content){
-        Meteor.call('bins.update', content)
+        Meteor.call('bins.update', this.props.bin, content)
     }
-    showFileInput(){
-       $('#newFile').toggle()
-    }
+    
     
 
     render(){
         
         return (
-            <div className="col-xs-8">
-                <h5>Editor</h5>
+            <div className="col-xs-7">
+                <h4>Editor</h4>
                 <div className="editor-pane">
                     <div  className="tab-pane">  
                         <CodeMirror
-                        value="hello"
+                        id="editor_window"
+                        value=""
                         onChange={this.onEditorChange.bind(this)}
-                        options={this.defaultMode} />
+                        options={this.mode} />
                     </div>
                 </div>
             </div>

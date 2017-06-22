@@ -21,5 +21,9 @@ Meteor.startup(() => {
     })
   })
 
+  Meteor.publish('user', function(){
+    return Meteor.users.findOne(this.userId)
+  })
+
  
 });

@@ -13,7 +13,7 @@ class LoginForm extends Component{
     loginUser(event){
         event.preventDefault()
 
-        const email = this.refs.email.value || '',
+        const username = this.refs.email.value || '',
               password = this.refs.password.value || ''
 
         Meteor.loginWithPassword(email, password, (error)=>{
@@ -47,6 +47,7 @@ class LoginForm extends Component{
                 </div>
                 <div className="form-group">
                     <a href="/auths/register">Need to register?</a>
+                    <a href="#">Forgot password?</a>
                 </div>
             </form>
         )
