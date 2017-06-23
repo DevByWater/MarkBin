@@ -15,8 +15,8 @@ class BinsList extends Component {
     }
     onBinClick(event){
         event.preventDefault()
-        Meteor.call('bins.insert', (error, binId)=>{
-            browserHistory.push(`/bins/${binId}`)
+        Meteor.call('bins.insert', (error, binName)=>{
+            browserHistory.push(`/bins/${binName}`)
         }) 
     }
     onBinRemove(bin){
@@ -24,10 +24,10 @@ class BinsList extends Component {
     }
     renderList(){
         return this.props.bins.map(bin => {
-            const url = `/bins/${bin._id}`
+            const url = `/bins/${bin.name}`
             return (
-                <li className="list-group-item binList-item" key={bin._id}>
-                    <Link to={url}> Bin {bin._id}</Link>
+                <li className="list-group-item binList-item" key={bin.name}>
+                    <Link to={url}> Bin {bin.name}</Link>
                     <span className="pull-right">
                         <span className="shared-count">
                             <i className="fa fa-users" aria-hidden="true"></i>

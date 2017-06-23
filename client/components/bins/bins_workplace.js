@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Meteor } from 'meteor/meteor'
-
+import { createContainer } from 'meteor/react-meteor-data'
 
 import BinsEditor from './bins_editor'
 import BinsViewer from './bins_viewer'
@@ -35,11 +35,11 @@ class BinsWorkplace extends Component {
 }
 
 export default createContainer((props)=> {
-    const { binId } = props.params
+    const { binName } = props.params
     Meteor.subscribe('bins')
     Meteor.subscribe('sharedBins')
     Meteor.subscribe('current_user')
    
 
-    return { bin: Bins.findOne(binId)}
+    return { bin: Bins.findOne(binName)}
 }, BinsWorkplace)

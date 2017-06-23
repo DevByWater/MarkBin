@@ -18,9 +18,9 @@ const routes = (
         <Route path="/" component={App}>
             <IndexRoute component={Home} />
             <Route path="auths/:action" component={AuthForm} />
-            <Route path="bins" component={AuthenticatedApp} >
+            <Route path="bins/:username" component={AuthenticatedApp} >
                 <IndexRoute  component={BinsMain} />
-                <Route path="/workplace/:binName" component />
+                <Route path="workplace/:binName" component={BinsWorplace} />
             </Route>
         </Route>
     </Router> 

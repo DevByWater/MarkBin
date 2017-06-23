@@ -38,3 +38,7 @@
     font-family: 'Marker Felt', 'Arial Narrow', Arial, sans-serif;
     color: #222;
 }
+input:invalid {
+    border: 1px solid #ff6060;
+    outline: #ff6060;
+}

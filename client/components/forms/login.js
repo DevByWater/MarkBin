@@ -45,9 +45,13 @@ class LoginForm extends Component{
                         Log In
                     </button>
                 </div>
-                <div className="form-group">
-                    <a href="/auths/register">Need to register?</a>
-                    <a href="#">Forgot password?</a>
+                <div className="form-group container form-redirect-link-container">
+                    <div className="col-xs-6">
+                        <a href="/auths/register">Need to register?</a>
+                    </div>
+                    <div className="col-xs-6">
+                         <a href="#">Forgot password?</a>
+                    </div>
                 </div>
             </form>
         )

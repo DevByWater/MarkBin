@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Meteor } from 'meteor/meteor'
 
 
-import FormHandler from '../../handlers/form_handler'
+import FormHandler from '../../../imports/scripts/form_handler'
 
 class CreateBinModal extends Component {
     constructor(props){

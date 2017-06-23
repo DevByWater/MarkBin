@@ -16,7 +16,7 @@ class BinsEditor extends Component {
     constructor(props){
         super(props)
 
-        this.mode = this.props.bin.fileType === 'html' ? EditorModes.HTML : EditorModes.Markdown
+        this.mode = this.props.bin.mode === 'html' ? EditorModes.HTML : EditorModes.Markdown
         
     }
     
